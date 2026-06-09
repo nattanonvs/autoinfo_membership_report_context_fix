@@ -21,12 +21,12 @@
 
 ## เอกสาร
 
-- [installation_guide.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/installation_guide.md)
-- [uninstallation_guide.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/uninstallation_guide.md)
-- [update_guide.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/update_guide.md)
-- [usage_guide.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/usage_guide.md)
-- [configuration_guide.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/configuration_guide.md)
-- [troubleshooting.md](file:///c:/odoo/APPreadytouse/autoinfo_membership_report_context_fix/docs/troubleshooting.md)
+- [installation_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/installation_guide.md)
+- [uninstallation_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/uninstallation_guide.md)
+- [update_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/update_guide.md)
+- [usage_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/usage_guide.md)
+- [configuration_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/configuration_guide.md)
+- [troubleshooting.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/troubleshooting.md)
 
 ## Owner
 

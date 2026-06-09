@@ -8,10 +8,14 @@
 ## Update Version (CLI)
 
 ```bash
-c:\odoo\odoo-15.0\.venv\Scripts\python.exe c:\odoo\odoo-15.0\odoo-bin -c c:\odoo\odoo-15.0\odoo.conf -d <dbname> -u autoinfo_membership_report_context_fix --stop-after-init
+python3 /var/odoo/odoo15/odoo/odoo-bin -c <path_to_odoo_conf> -d <dbname> -u autoinfo_membership_report_context_fix --stop-after-init
 ```
 
 ## Change Log
+
+### 15.0.1.0.2
+
+- ปรับปรุง path ในเอกสารให้เป็นมาตรฐาน Linux (/var/odoo/custom15_autoinfo)
 
 ### 15.0.1.0.1
 
@@ -33,3 +37,4 @@ c:\odoo\odoo-15.0\.venv\Scripts\python.exe c:\odoo\odoo-15.0\odoo-bin -c c:\odoo
 
 - 2026-06-07
   - เพิ่ม Credits และปรับ owner เป็น The Auto-Info Co., Ltd.
+  - ปรับ path ในเอกสารให้เป็นมาตรฐาน Linux

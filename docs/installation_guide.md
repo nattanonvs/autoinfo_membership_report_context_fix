@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - Odoo 15
-- Addons path ต้องมี `C:\odoo\APPreadytouse` (ในเครื่องนี้มีอยู่แล้วในไฟล์ config)
+- Addons path ต้องมี `/var/odoo/custom15_autoinfo`
 
 ## Install (UI)
 
@@ -17,7 +17,7 @@
 ตัวอย่าง (ปรับชื่อ database ตามจริง):
 
 ```bash
-c:\odoo\odoo-15.0\.venv\Scripts\python.exe c:\odoo\odoo-15.0\odoo-bin -c c:\odoo\odoo-15.0\odoo.conf -d <dbname> -i autoinfo_membership_report_context_fix --stop-after-init
+python3 /var/odoo/odoo15/odoo/odoo-bin -c <path_to_odoo_conf> -d <dbname> -i autoinfo_membership_report_context_fix --stop-after-init
 ```
 
 ## Verify

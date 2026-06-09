@@ -1,6 +1,6 @@
 {
     "name": "AutoInfo Membership Report Context Fix",
-    "version": "15.0.1.0.1",
+    "version": "15.0.1.0.2",
     "category": "Membership",
     "summary": "Fix Members Analysis context to prevent invalid date domains",
     "author": "The Auto-Info Co., Ltd.",
