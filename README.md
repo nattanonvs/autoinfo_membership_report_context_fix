@@ -1,32 +1,36 @@
-# AutoInfo Membership Report Context Fix (Odoo 15)
+# AUTO-INFO : Membership Report Context Fix
 
-โมดูลนี้แก้ปัญหา RPC_ERROR ของรายงาน Members Analysis (membership) ที่เกิดจากการมีค่า default context บางตัวทำให้ระบบสร้าง domain วันที่ผิดรูปแบบ (เช่นเทียบ date กับค่า `1`) และทำให้ PostgreSQL error `invalid input syntax for type date: "1"`.
+โมดูลนี้ออกแบบมาเพื่อแก้ปัญหา `RPC_ERROR` ในรายงาน Members Analysis ของ Odoo 15 ซึ่งเกิดจาก action context เดิมส่งค่า default ที่ทำให้ระบบสร้าง domain วันที่ผิดรูปแบบ เช่น `('start_date', '=', 1)` และนำไปสู่ PostgreSQL error `invalid input syntax for type date: "1"`.
 
-## Scope (Case 1: แก้ไขอยู่ในโมดูลเดียว)
+## Module Path
 
-- โมดูลเดิมที่เกี่ยวข้อง: `membership`
-- จุดที่แก้: `ir.actions.act_window` (xml id: `membership.action_report_membership_tree`)
-- วิธีแก้: ปรับค่า `context` ให้เป็นค่าที่ปลอดภัย และเก็บค่าเดิมไว้เพื่อ restore ตอนถอนการติดตั้ง
+- Production path ที่แนะนำ: `/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix`
 
-## คุณค่า (Value)
+## Business Value
 
-- ลด downtime ของหน้ารายงาน Members Analysis
-- ทำให้ผู้ใช้เข้าเมนูรายงานได้ทันทีโดยไม่เจอ error ฝั่งฐานข้อมูล
-- ติดตั้ง/ถอนการติดตั้งได้โดยไม่แก้ core และมีการ restore ค่าเดิมให้
+- ลดความเสี่ยงที่ผู้ใช้งานเข้าเมนูรายงานสมาชิกแล้วระบบล้ม
+- ลดเวลาวิเคราะห์ incident เพราะสาเหตุถูกควบคุมไว้ที่ action context โดยตรง
+- ติดตั้งและถอนการติดตั้งได้โดยไม่ต้องแก้ไข core module ของ Odoo
+- รองรับการปิดใช้งานชั่วคราวจากหน้า Settings โดยยังเก็บค่าเดิมไว้ restore ได้
 
-## วิธีใช้งานแบบย่อ
+## Functional Scope
 
-- ติดตั้งโมดูล แล้วใช้งานเมนู: Membership → Reporting → Members Analysis ตามปกติ
-- ปิดใช้งานชั่วคราวได้ที่ Settings → AutoInfo Membership → “Enable Membership Report Context Fix”
+- โมดูลอ้างอิงต้นทาง: `membership`
+- จุดที่แก้ไข: `membership.action_report_membership_tree`
+- วิธีทำงาน:
+  - เก็บค่า `context` เดิมของ action ก่อน
+  - เขียน `context` แบบปลอดภัยเมื่อเปิดใช้งานโมดูล
+  - คืนค่า `context` เดิมเมื่อ disable หรือ uninstall
 
-## เอกสาร
+## Main Documents
 
-- [installation_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/installation_guide.md)
-- [uninstallation_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/uninstallation_guide.md)
-- [update_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/update_guide.md)
-- [usage_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/usage_guide.md)
-- [configuration_guide.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/configuration_guide.md)
-- [troubleshooting.md](/var/odoo/custom15_autoinfo/autoinfo_membership_report_context_fix/docs/troubleshooting.md)
+- [docs/installation_guide.md](docs/installation_guide.md)
+- [docs/uninstallation_guide.md](docs/uninstallation_guide.md)
+- [docs/update_guide.md](docs/update_guide.md)
+- [docs/usage_guide.md](docs/usage_guide.md)
+- [docs/configuration_guide.md](docs/configuration_guide.md)
+- [docs/troubleshooting.md](docs/troubleshooting.md)
+- [docs/pause_guide.md](docs/pause_guide.md)
 
 ## Owner
 
@@ -34,5 +38,5 @@
 
 ## Credits
 
-Development Team: The Auto-Info Co., Ltd. : Dev Team / Mr. Nattanon Vinyangkoon – Project conception, implementation, and thorough review of all deliverables.
+Development Team: The Auto-Info Co., Ltd. : Dev Team / Mr. Nattanon Vinyangkoon - Project conception, implementation, and thorough review of all deliverables.
 AI Coding Assistant: TRAE SOLO / MICROSOFT 365 COPILOT - Utilized to support code generation and productivity improvements under human oversight (e.g., suggesting code snippets and optimizations).
